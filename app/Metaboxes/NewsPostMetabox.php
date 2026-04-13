@@ -4,7 +4,7 @@ namespace App\Metaboxes;
 class NewsPostMetabox extends BaseMetabox
 {
     protected string $title = 'Cấu hình bài đăng';
-    protected array $post_types = ['post', 'viet-heritage', 'viet-product', 'viet-travel'];
+    protected array $post_types = ['post', 'viet-travel'];
     protected string $context = 'normal';
     protected string $priority = 'high';
 

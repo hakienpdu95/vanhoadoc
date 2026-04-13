@@ -71,8 +71,8 @@ class CacheHelper
         $current = self::getDataVersion($post_type);
         $newVersion = $current + 1;
 
-        self::$cache->forever($key, $newVersion);   // forever = không expire
-        self::$memory = [];                         // xóa memory layer
+        self::$cache->forever($key, $newVersion);   
+        self::$memory = [];                         
 
         if (self::$debug) {
             error_log("🔄 [CACHE VERSION] BUMP → {$post_type} | v{$newVersion}");
@@ -90,8 +90,7 @@ class CacheHelper
             self::bumpDataVersion($post_type);
         }
 
-        // === BUMP CHO DANH SÁCH MERGED (post + event) ===
-        if (in_array($post_type, ['post', 'event', 'viet-heritage', 'viet-product', 'viet-travel', 'member'])) {
+        if (in_array($post_type, ['post', 'event', 'viet-travel', 'member'])) {
             self::bumpDataVersion('content_list');
         }
         

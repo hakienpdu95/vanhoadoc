@@ -13,7 +13,7 @@ class WatermarkHandler
 
     private $min_width  = 800;              // Chỉ watermark size >= 800px (tiết kiệm tài nguyên)
 
-    private $post_types = ['post', 'event', 'viet-heritage', 'viet-product', 'viet-travel'];
+    private $post_types = ['post', 'event', 'viet-travel'];
 
     public function __construct()
     {

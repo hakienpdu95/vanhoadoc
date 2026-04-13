@@ -280,46 +280,12 @@ if (file_exists(get_theme_file_path('vendor/autoload.php'))) {
     require_once get_theme_file_path('vendor/autoload.php');
 }
 
-require_once get_theme_file_path('app/Helpers/SecurityHelper.php');
-\App\Helpers\SecurityHelper::init();
-
 // Global helpers (cmeta, sage_get_files, ...)
 require_once get_theme_file_path('app/helpers.php');
 
 // === CUSTOM TABLE EAV 10/10 ===
 require_once get_theme_file_path('app/Database/CustomTableManager.php');
 \App\Database\CustomTableManager::init();
-// === REGISTER CPT + KHAI BÁO FIELD QUAN TRỌNG (CRITICAL) ===
-\App\Database\CustomTableManager::register('member', ['*']);
-
-add_action('after_setup_theme', function () {
-    if (!get_role('member')) {
-        add_role('member', 'Thành viên', ['read' => true, 'upload_files' => true]);
-    }
-}, 20);
-
-require_once get_theme_file_path('app/Auth/MemberRegistration.php');
-require_once get_theme_file_path('app/Helpers/EmailHelper.php');
-require_once get_theme_file_path('app/Auth/MemberActivation.php');
-require_once get_theme_file_path('app/Auth/MemberPasswordReset.php');
-require_once get_theme_file_path('app/Auth/MemberPermissions.php');
-
-\App\Auth\MemberRegistration::init();
-\App\Auth\MemberActivation::init();
-\App\Auth\MemberPermissions::init();
-\App\Auth\MemberPasswordReset::init();
-
-// === TẮT HOÀN TOÀN EMAIL MẶC ĐỊNH CỦA WORDPRESS (Login Details) ===
-remove_action('register_new_user', 'wp_send_new_user_notifications');
-add_filter('wp_new_user_notification_email', '__return_false');
-
-require_once get_theme_file_path('app/Helpers/MemberHelper.php');
-
-add_action('after_setup_theme', function () {
-    if (!get_role('pending_member')) {
-        add_role('pending_member', 'Thành viên chờ kích hoạt', ['read' => true]);
-    }
-}, 20);
 
 // === SMTP MAILER 10/10 ===
 require_once get_theme_file_path('app/Helpers/SMTPMailer.php');
@@ -347,19 +313,6 @@ require_once get_theme_file_path('app/Helpers/SMTPMailer.php');
     '*'
 ]);
 \App\Database\CustomTableManager::register('viet-travel', [
-    '*'
-]);
-\App\Database\CustomTableManager::register('viet-heritage', [
-    '*'
-]);
-\App\Database\CustomTableManager::register('viet-product', [
-    '*'
-]);
-
-\App\Database\CustomTableManager::register('property-for-sale', [
-    '*'
-]);
-\App\Database\CustomTableManager::register('property-for-rent', [
     '*'
 ]);
 
@@ -474,9 +427,6 @@ add_action('admin_enqueue_scripts', function () {
 
 // === LOCATION HELPER ===
 require_once get_theme_file_path('app/Helpers/LocationHelper.php');
-
-\App\Database\CustomTableManager::register('viet-product', ['province_code', 'ward_code']);
-\App\Database\CustomTableManager::register('viet-heritage', ['province_code', 'ward_code']);
 \App\Database\CustomTableManager::register('viet-travel', ['province_code', 'ward_code']);
 
 // === SEARCH MODULE 11/10 – TỐI ƯU CAO NHẤT ===
@@ -497,14 +447,7 @@ require_once get_theme_file_path('app/Queries/MergedPostsQuery.php');
 \App\Queries\MergedPostsQuery::initHomepage(['posts_per_page' => 3]);
 // Archive CPT (thêm bao nhiêu CPT cũng được)
 \App\Queries\MergedPostsQuery::initArchive('event',   ['posts_per_page' => 2]);
-\App\Queries\MergedPostsQuery::initArchive('viet-heritage',   ['posts_per_page' => 2]);
-\App\Queries\MergedPostsQuery::initArchive('viet-product',   ['posts_per_page' => 2]);
-/**
- * ===============================================
- * HOMEPAGE MERGE 'post' + 'event' - PAGINATION 404 FIX
- * Cách WordPress chuẩn nhất (không override object, không bị redirect_canonical)
- * ===============================================
- */
+
 add_action('pre_get_posts', function ($query) {
     if (is_admin() || !$query->is_main_query() || !(is_home() || is_front_page())) {
         return;
@@ -515,22 +458,22 @@ add_action('pre_get_posts', function ($query) {
     error_log("[HOMEPAGE_FINAL] Main query modified | paged = {$paged}");
 
     $query->set('post_type', ['post', 'event']);
-    $query->set('posts_per_page', 1);           // ← Thay số này nếu bạn muốn 5-10 bài/trang
+    $query->set('posts_per_page', 1);           
     $query->set('orderby', 'date');
     $query->set('order', 'DESC');
     $query->set('post_status', 'publish');
-    $query->set('no_found_rows', false);        // BẮT BUỘC cho pagination chính xác
-    $query->set('suppress_filters', false);     // Để CustomTableManager + meta flags chạy
+    $query->set('no_found_rows', false);        
+    $query->set('suppress_filters', false);     
     $query->set('update_post_meta_cache', false);
     $query->set('update_post_term_cache', false);
 
-}, 1); // priority 1 - chạy cực sớm
+}, 1); 
 
-// Block redirect_canonical triệt để (nguyên nhân chính gây lỗi)
+
 add_filter('redirect_canonical', function ($redirect_url) {
     if (is_home() || is_front_page()) {
         error_log("[HOMEPAGE_FINAL] Blocked redirect_canonical");
-        return false; // Không redirect /page/2/ về /
+        return false; 
     }
     return $redirect_url;
 }, 10);
@@ -582,7 +525,4 @@ add_action('rwmb_after_save_post', function ($post_id) {
 
     // Luôn cập nhật (kể cả rỗng)
     update_post_meta($post_id, 'ward_code', $ward_code);
-
-    // Debug log (xem kết quả)
-    error_log("=== [FORCE SAVE] ward_code = '" . $ward_code . "' | post_id = {$post_id} ===");
 }, 20);

@@ -19,6 +19,6 @@ class VietTravelPostType extends BasePostType
 
     protected function useDefaultCategory(): bool
     {
-        return true; 
+        return false; 
     }
 }

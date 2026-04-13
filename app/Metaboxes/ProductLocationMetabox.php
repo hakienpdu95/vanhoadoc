@@ -3,7 +3,7 @@ namespace App\Metaboxes;
 
 class ProductLocationMetabox extends BaseMetabox {
     protected string $title = 'Vị trí – Tỉnh & Phường/Xã';
-    protected array $post_types = ['post', 'viet-heritage', 'viet-product', 'viet-travel', 'property-for-sale', 'property-for-rent'];
+    protected array $post_types = ['post', 'viet-travel'];
 
     protected function getFields(): array {
         global $wpdb;

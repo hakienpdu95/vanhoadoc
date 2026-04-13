@@ -63,7 +63,7 @@ class QueryCache
     {
         $total_start = microtime(true);
 
-        $post_types = ['post', 'event', 'viet-heritage', 'viet-product', 'viet-travel'];
+        $post_types = ['post', 'event', 'viet-travel'];
 
         $query_start = microtime(true);
         $query = new \WP_Query([

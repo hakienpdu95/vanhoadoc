@@ -18,8 +18,6 @@ class PlaceholderHandler
     private static array $postTypeMap = [
         'post'  => 'placeholder.png',
         'event' => 'placeholder.png',
-        'viet-heritage' => 'placeholder.png',
-        'viet-product' => 'placeholder.png',
         'viet-travel' => 'placeholder.png',
     ];
 

@@ -5,7 +5,7 @@ namespace App\Permalinks;
 class PermalinkManager
 {
     /** Danh sách post type áp dụng (có thể thêm động) */
-    private static array $post_types = ['post', 'event', 'viet-heritage', 'viet-product', 'viet-travel'];
+    private static array $post_types = ['post', 'event', 'viet-travel'];
 
     /** Cache để tránh xử lý lặp lại trong cùng request */
     private static array $processed = [];

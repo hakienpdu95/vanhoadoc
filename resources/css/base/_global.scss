@@ -471,3 +471,28 @@ body {
         }
     }
 }
+
+.book-image {
+    position: relative;
+    cursor: pointer;
+
+    .image-cut {
+        position: absolute;
+        z-index: 100;
+        width: 12px;
+        height: 100%;
+        border-radius: 5px 0 0 5px;
+        background: linear-gradient(90deg,hsla(0,0%,100%,.22) 19.38%,rgba(0,0,0,.15) 51.67%,rgba(0,0,0,.34) 64.17%,hsla(0,0%,82%,.27) 75.63%,hsla(0,0%,100%,0) 94.38%);
+        mix-blend-mode: normal;
+        opacity: .3;
+    }
+
+    a.image-small {
+        > img {
+            box-shadow: 3px 3px 8px rgba(0,0,0,.3);
+            z-index: 1;
+            border-radius: 5px;
+            aspect-ratio: 378/567;
+        }
+    }
+}

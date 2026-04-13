@@ -61,4 +61,24 @@
     </div>
 </section>
 
+<section class="wrapper-books">
+    <div class="container">
+        @while ($sub_feature->have_posts())
+        @php $sub_feature->the_post(); @endphp
+        <div class="book-image w-[216px]">
+            <div class="image-cut"></div>
+            {!! sage_post_link_open(get_post(), 'image image-small relative overflow-hidden block no-underline', 'post-sub-feature-home') !!}
+            {!! sage_thumbnail('thumb-medium', [
+                'class' => 'w-full h-full object-cover lazy loaded'
+            ], get_post()) !!}
+            {!! sage_post_link_close() !!}
+            <div class="book-scrolling-typo">
+                {!! sage_post_link_open(get_post(), '!no-underline font-semibold text-[#222b45]', 'post-story-home') !!}
+                    {!! get_the_title(get_post()) !!}
+                {!! sage_post_link_close() !!}
+            </div>
+        </div>
+        @endwhile
+    </div>
+</section>
 @php wp_reset_postdata(); @endphp

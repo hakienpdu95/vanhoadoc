@@ -1,0 +1,16 @@
+@use "sass:meta";
+
+@use 'abstracts' as *;
+
+@use 'vendors';
+
+@use 'base/reset';
+@use 'base/typography';
+@use 'base/global';
+@use 'base/wp-core';
+
+@use 'layout';
+
+@use 'components';
+
+@use 'pages';

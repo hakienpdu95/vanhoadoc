@@ -1,0 +1,33 @@
+@use '../abstracts' as *;
+
+@layer components {
+  .container {
+    margin-inline: auto;
+    /*padding-inline: 1rem;*/
+    
+    @include mq(sm) {
+      /*padding-inline: 0;*/
+    }
+
+    @include mq-max(sm) {
+      /*padding-inline: 0;*/
+    }
+
+    @include mq('2xl') {
+      max-width: 1110px !important;
+      width: 100%;
+    }
+  }
+
+  .scroll-to-top {
+    &.hide {
+      visibility: hidden;
+      opacity: 0%;
+    }
+
+    &.active {
+      visibility: visible;
+      opacity: 100%;
+    }
+  }
+}

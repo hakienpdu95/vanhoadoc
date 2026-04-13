@@ -1,0 +1,86 @@
+@use '../abstracts' as *;
+
+.call-to-action {
+    padding: 30px 0;
+    position: relative;
+    background: #64B183;
+    background-position-y: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+
+    .icon-box-wrapper {
+    	.icon-box-icon {
+		  	display: inline-flex;
+		  	flex: 0 0 auto;
+		  	order: 2;
+		}
+
+		.icon-box-content {
+		  	flex-grow: 1;
+
+		  	@include mq(md) {
+		  		flex-grow: 0;
+    			margin-right: 15px;
+		  	}
+
+		  	.icon-box-title {
+			  	color: #fff;
+			  	font-size: 18px;
+			  	font-weight: 600;
+			  	margin-bottom: 0;
+			}
+		}
+    }
+
+    .elementor-icon {
+	  	display: inline-block;
+	  	line-height: 1;
+	  	transition: all .3s;
+	  	color: #818a91;
+	  	font-size: 50px;
+	  	text-align: center;
+	  	color: #fff;
+  		margin-right: 0;
+	}
+
+	.main-title {
+	  	color: #fff;
+	  	font-size: 18px;
+	  	font-weight: 600;
+	  	margin-bottom: 0;
+	  	margin-right: 10px;
+	}
+
+	.btn-action {
+	  	background: #D63233;
+	  	min-width: 150px;
+	  	border: 1px solid #D63233;
+	  	font-weight: 700;
+	  	padding: .375rem .75rem;
+	  	line-height: 1.5;
+	  	border-radius: .25rem;
+	  	color: #fff;
+
+	  	&:hover {
+		  	background: #717171;
+		  	border: 1px solid #717171;
+		}
+	}
+}
+
+.footer-contact {
+	h3 {
+	  	font-size: 1.1em;
+	  	color: #1655a8;
+	  	font-weight: 600;
+	}
+
+  	p {
+	  	margin: 8px 0;
+	  	color: #555555;
+	  	font-size: 0.95em;
+	}
+}
+#footer {
+
+}

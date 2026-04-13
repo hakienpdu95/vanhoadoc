@@ -309,7 +309,7 @@ require_once get_theme_file_path('app/Helpers/SMTPMailer.php');
 \App\Database\CustomTableManager::register('guide', [
     '*'
 ]);
-\App\Database\CustomTableManager::register('review', [
+\App\Database\CustomTableManager::register('book-review', [
     '*'
 ]);
 \App\Database\CustomTableManager::register('viet-travel', [

@@ -22,17 +22,8 @@
     @include('sections.header')
     <div id="app" class="">
       <main id="main" class="main">
-        <div class="container">
-          <div class="w-full inline-block clear-both mt-4 mb-5">
-            @if (has_nav_menu('primary_navigation'))
-            <nav class="main-menu">
-              {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav', 'echo' => false]) !!}
-            </nav>
-            @endif
-          </div>
-      </div>
-      @yield('content')
-    </main>
+        @yield('content')
+      </main>
     </div>
     @include('sections.footer')
     @php(do_action('get_footer'))

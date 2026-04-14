@@ -50,7 +50,7 @@
                                 </strong>
                             </a>
                             <div href="{{ home_url('/') }}" class="logo slg-actd absolute" style="bottom: -4px">
-                                <span class="slogan-actd">quảng bá nông sản, văn hóa, du lịch...</span>
+                                <span class="slogan-actd">kết nối, lan tỏa văn hóa đọc...</span>
                             </div>
                         </div>                  
                     </div>

@@ -543,10 +543,20 @@ body {
         margin: 0 auto;
         padding: 20px 0;
 
+        @include mq-max(md) {
+            flex-direction: column;
+            text-align: center;
+        }
+
         .nma-hero-title {
             margin: 0 0 8px;
             line-height: 1.2;
             text-align: left;
+            font-size: 33px;
+
+            @include mq-max(md) {
+                text-align: center;
+            }
 
             a {
                 text-decoration: none;
@@ -557,6 +567,7 @@ body {
         .nma-hero-excerpt {
             margin: 0;
             line-height: 1.6;
+            font-size: 20px;
         }
     }
 

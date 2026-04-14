@@ -10,8 +10,8 @@
 						<div class="flex flex-col" style="margin-top:-3px">
 						    <a class="logo" href="{{ home_url('/') }}">
 						        <strong class="brand-name relative">
-						            <span class="br-1">Vì</span>
-						            <span class="br-2">Gia đình</span>
+						            <span class="br-1">Ngọc</span>
+						            <span class="br-2">Minh An</span>
 						            <span class="br-3 absolute">.com.vn</span>
 						        </strong>
 						    </a>
@@ -85,8 +85,8 @@
 						<div class="flex flex-col" style="margin-top:-3px">
 						    <a class="logo" href="{{ home_url('/') }}">
 						        <strong class="brand-name relative">
-						            <span class="br-1">Vì</span>
-						            <span class="br-2">Gia đình</span>
+						            <span class="br-1">Ngọc</span>
+						            <span class="br-2">Minh An</span>
 						            <span class="br-3 absolute">.com.vn</span>
 						        </strong>
 						    </a>

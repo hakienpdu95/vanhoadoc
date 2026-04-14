@@ -495,4 +495,21 @@ body {
             aspect-ratio: 378/567;
         }
     }
+
+    .book-scrolling-typo {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        margin-top: 5%;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 20px;
+        line-height: 28px;
+        margin-bottom: 1em;
+
+        > a {
+
+        } 
+    }
 }

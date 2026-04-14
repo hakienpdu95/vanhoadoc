@@ -1,6 +1,6 @@
 @php
     $query = \App\Queries\MergedPostsQuery::featured(1, ['post']); 
-    $sub_feature = \App\Queries\MergedPostsQuery::latest(3); 
+    $sub_feature = \App\Queries\MergedPostsQuery::latest(6, ['book-review']); 
 @endphp
 <section class="wrapper-topstory">
     <div class="news-box tin_host_home w-full pb-0">

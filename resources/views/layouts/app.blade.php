@@ -20,7 +20,7 @@
     @include('partials.body-common')
     
     @include('sections.header')
-    <div id="app" class="py-3 section-content container mx-auto bg-white">
+    <div id="app" class="">
       <main id="main" class="main">
         <div class="container">
           <div class="w-full inline-block clear-both mt-4 mb-5">
@@ -30,21 +30,8 @@
             </nav>
             @endif
           </div>
-          <div class="max-w-[1110px] mx-auto sm:px-0 px-3 flex items-start justify-between gap-5 flex-col lg:flex-row relative">
-
-              <div class="max-w-[772px] w-full">
-                  @yield('content')
-              </div>
-
-              <aside class="w-full lg:w-75 flex-none grid gap-[15px] sm:grid-cols-2 lg:grid-cols-1 top-5">
-                  @hasSection('sidebar')
-                    <div class="sidebar sidebar-inner">
-                      @yield('sidebar')
-                    </div>
-                  @endif
-              </aside>
-          </div>
       </div>
+      @yield('content')
     </main>
     </div>
     @include('sections.footer')
